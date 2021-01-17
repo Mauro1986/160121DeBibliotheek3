@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Models
 {
-    public class Bezoeker
+    public class Bezoeker 
     {
         public string VoorNaam { get; set; }
         public string FamilieNaam { get; set; }
