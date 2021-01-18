@@ -105,7 +105,7 @@ namespace ClassLibrary.Models
                     Console.WriteLine($"Item Id: {item.ItemId}");
                     Console.WriteLine($"Soort Item:{item.soortItem}");
                     Console.WriteLine($"Titel: {item.Titel}");
-                    Console.WriteLine($"Maker: {item.RegieAuteurUitvoerder}");  //1
+                    Console.WriteLine($"Maker: {item.RegieAuteurUitvoerder}");  //Zou nog moeten aangepast worden afghangelijk van soort media
                     Console.WriteLine($"Jaartal: {item.Jaartal}");
                     Console.WriteLine($"Uitgeleend: {item.Uitgeleend}");
                     Console.WriteLine($"Afgevoerd: {item.Afgevoerd}");

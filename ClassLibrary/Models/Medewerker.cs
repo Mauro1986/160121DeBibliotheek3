@@ -70,7 +70,7 @@ namespace ClassLibrary.Models
             string titel;
             string regieauteuruitvoerder;
             string itemId;
-            //SoortItem soortitem;
+            string soortitem;
             int jaartal;
             bool uitgeleend;
             bool afgevoerd;
@@ -84,8 +84,9 @@ namespace ClassLibrary.Models
             Console.WriteLine("Item Id:");
             itemId = Console.ReadLine();
             Console.WriteLine("Soort Item:lukt nog niet");          //moet enum kunnen ingeven
-            //soortitem = Convert. Console.ReadLine(); 
-            //soortitem = SoortItem.
+            soortitem = Console.ReadLine(); 
+
+
             Console.WriteLine("Jaartal:");
             jaartal = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Uitgeleed(true/false):");
@@ -93,12 +94,12 @@ namespace ClassLibrary.Models
             Console.WriteLine("Afgevoerd(true/false):");
             afgevoerd = Convert.ToBoolean(Console.ReadLine());
 
-            Item item003 = new Item()                                       //ID generator nog maken
+            Item item003 = new Item()    //andere naam                                   
             {
                 Titel = titel,
                 RegieAuteurUitvoerder = regieauteuruitvoerder,
                 ItemId = itemId,
-                //soortItem = ClassLibrary.Models.SoortItem.Boek,
+                //soortItem = ClassLibrary.Models.SoortItem.  //input van user in variabel//validate enum //if true soort vb soort enum.dvd
                 Jaartal = jaartal,
                 Uitgeleend = uitgeleend,
                 Afgevoerd = afgevoerd

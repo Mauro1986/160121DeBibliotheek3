@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassLibrary.Models;
+using System.IO;
 
 namespace ConsoleAppBib
 {
@@ -12,7 +13,6 @@ namespace ConsoleAppBib
         static void Main(string[] args)
         {
             //MENU komt hieronder
-
 
             #region tijdelijke testcode
             //TESTING TEMP CODE
@@ -60,7 +60,7 @@ namespace ConsoleAppBib
             };
             Medewerker medewerker001 = new Medewerker()
             {
-                VoorNaam = "Joe",
+                VoorNaam = "Den Joe",
                 FamilieNaam = "Biden",
                 GeboorteDatum = "10 01 1960"
             };
@@ -77,8 +77,9 @@ namespace ConsoleAppBib
 
 
             //TEST METHODS
-            medewerker001.ToonOverzicht();
-            medewerker001.Uitlenen();
+            //medewerker001.ToonOverzicht();
+            //medewerker001.VoegItemToe();
+            //medewerker001.ToonOverzicht();
 
 
             // lid001.RegistreerLid("1812");
@@ -101,6 +102,36 @@ namespace ConsoleAppBib
             //medewerker001.PromoveerLidNaarMedeweker();
 
             //medewerker001.GeefOverzichtLeden();
+            medewerker001.VoerItemAf();
+            Console.WriteLine("item afgevoerd");
+            #endregion
+
+            //Voor Item aan Textfile Afgevoerde items, eerst method  VoerItemAf uitvoeren
+            #region Write list To TextFile ItemsInCollectie, Afgevoerde Items, Leden
+            string fileAdresItemsInCollectie = @"C:\temp\TekstBestandenBib\ItemsInCollectie.txt";
+            List<string> output1 = new List<string>();
+            foreach (var item in CollectieBibliotheek.ItemsInCollectie)
+            {
+                output1.Add($"{item.Titel},{item.RegieAuteurUitvoerder},{item.ItemId},{item.soortItem},{item.Jaartal},{item.Uitgeleend},{item.Afgevoerd}");
+            }
+            File.WriteAllLines(fileAdresItemsInCollectie, output1);
+
+            string fileAdresAfgevoerdeItems = @"C:\temp\TekstBestandenBib\afgevoerdeItems.txt";
+            List<string> output2 = new List<string>();
+            foreach (var item in CollectieBibliotheek.AfgevoerdeItems)
+            {
+                output2.Add($"{item.Titel},{item.RegieAuteurUitvoerder},{item.ItemId},{item.soortItem},{item.Jaartal},{item.Uitgeleend},{item.Afgevoerd}");
+            }
+            File.WriteAllLines(fileAdresAfgevoerdeItems, output2);
+
+            string fileAdresLeden = @"C:\temp\TekstBestandenBib\Leden.txt";
+            List<string> output3 = new List<string>();
+            foreach (var item in CollectieBibliotheek.Leden)
+            {
+                output3.Add($"{item.VoorNaam},{item.FamilieNaam},{item.GeboorteDatum}{item.ItemsUitgeleend}");
+            }
+            File.WriteAllLines(fileAdresLeden, output3);
+
             #endregion
         }
     }
