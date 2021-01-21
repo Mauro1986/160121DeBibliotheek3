@@ -11,8 +11,8 @@ namespace ClassLibrary.Models
         public string GeboorteDatum { get; set; }
 
         public List<Item> ItemsUitgeleend { get; set; } // max 5
-        //collectie UitleenHistoriek
-        //collectie Reservatie(max 5)
+        public List<Item> UitleenHistoriek { get; set; }
+        public List<Item> Reservaties { get; set; } // max 5
 
         public Lid()
         {
@@ -21,75 +21,87 @@ namespace ClassLibrary.Models
         public Lid(string voorNaam, string familieNaam, string geboorteDatum) : base(voorNaam, familieNaam)
         {
             GeboorteDatum = geboorteDatum;
+            ItemsUitgeleend = new List<Item>();
+            UitleenHistoriek = new List<Item>();
+            //Reservaties = new List<Item>();
+        }
+        public Lid(string voornaam, string familienaam, string geboortedatum,  List<Item> itemsUitgeleend, List<Item> uitleenhistoriek, List<Item> reservatie) : base(voornaam, familienaam)
+        {
+            GeboorteDatum = geboortedatum;
+            ItemsUitgeleend = itemsUitgeleend;
         }
 
         #region Methods
-        public void Uitlenen()         //item item? void?               //NOG WERK AAN    
+        public void Uitlenen(Item item)             //NOG WERK AAN    
         {
-            Console.WriteLine("Geef titel van het item dat je wilt lenen");
-            string titelZoekopdracht = Console.ReadLine();
-            bool check = false;
-            foreach (var item in CollectieBibliotheek.ItemsInCollectie)
-            {
-                if (item.Titel != titelZoekopdracht)
-                {
-                    check = false;
-                }
-                else
-                {
-                    check = true;
-                    item.Uitgeleend = true;
-                    ItemsUitgeleend.Add(item);
-                    Console.WriteLine($"{titelZoekopdracht} is nu uitgeleend, veel plezier ermee");
-                    //foreach (var itemm in ItemsUitgeleend)
-                    //{
-                    //    Console.WriteLine("Lijst uitgeleende items");
-                    //    Console.WriteLine(item.Titel);
-                    //    Console.WriteLine();
-                    //}
-                    //break;
-                }
-            }
-            if (check)
-            {
-                Console.WriteLine($"\nTitel '{titelZoekopdracht}' gevonden!");        //eventueel alle gegevens tonen
+            Console.WriteLine("item uitgeleend en toegevoegd aan ItemsUitgeleend en UitleenHistoriek");
+            ItemsUitgeleend.Add(item);
+            UitleenHistoriek.Add(item);                                                                         //Maximum 5
+            item.Uitgeleend = true;
 
-            }
-            else
-            {
-                Console.WriteLine($"\n'{titelZoekopdracht}' niet gevonden...");
-                Uitlenen();
-            }
+            #region Validate of zoekopdracht in collectie zit maar probleem mee...
+            //Console.WriteLine("Geef titel van het item dat je wilt lenen");
+            //string titelZoekopdracht = Console.ReadLine();
+            //bool check = true;
 
+            //foreach (var item in CollectieBibliotheek.ItemsInCollectie)
+            //{
+            //    if (!(item.Titel.Contains(titelZoekopdracht)))
+            //    {
+            //        check = false;
+            //    }
+
+            //    else if (item.Titel.Contains(titelZoekopdracht))
+            //    {
+            //        check = true;
+            //        Console.WriteLine($"{titelZoekopdracht} is gevonden en bij deze uitgeleend, veel plezier ermee!");
+            //       // ItemsUitgeleend.Add(item);                                                                            //Toevoegen aan itemsuitgeleend gaat niet
+            //        break;
+            //    }
+            //}
+            //if (!check)
+            //{
+            //    Console.WriteLine($"\n'{titelZoekopdracht}' niet gevonden..."); 
+            //    Uitlenen();
+            //}
+            #endregion      //validate of   //
         }
 
-        public void Terugbrengen()//Item item
+        public void Terugbrengen(Item item)
         {
-            Console.WriteLine("Geef titel van het item dat je wilt terugbrengen");
-            string titelZoekopdracht = Console.ReadLine();
-            bool check = false;
-            foreach (var item in CollectieBibliotheek.ItemsInCollectie)
-            {
-                if (item.Titel != titelZoekopdracht)
-                {
-                    check = false;
-                }
-                else
-                {
-                    check = true;
-                    item.Uitgeleend = false;
-                    Console.WriteLine($"{titelZoekopdracht} is nu uitgeleend, veel plezier ermee");
-                    break;
-                }
-            }
-            if (!check)
-            {
-                Console.WriteLine($"\n'{titelZoekopdracht}' niet gevonden...");
-            }
+            Console.WriteLine("Item teruggebracht waarvoor dank, item removed van ItemsUitgeleend");
+            ItemsUitgeleend.Remove(item);
+            item.Uitgeleend = false;
+            #region Validate maar probleem mee....
+            //Console.WriteLine("Geef titel van het item dat je wilt terugbrengen");
+            //string titelZoekopdracht = Console.ReadLine();
+            //bool check = false;
+            //foreach (var item in CollectieBibliotheek.ItemsInCollectie)
+            //{
+            //    if (item.Titel != titelZoekopdracht)
+            //    {
+            //        check = false;
+            //    }
+            //    else
+            //    {
+            //        check = true;
+            //        item.Uitgeleend = false;
+            //        ItemsUitgeleend.Remove(item);
+            //        Console.WriteLine($"Bedankt om {titelZoekopdracht} terug te brengen!");
+            //        break;
+            //    }
+            //}
+            //if (!check)
+            //{
+            //    Console.WriteLine($"\n'{titelZoekopdracht}' niet gevonden...");
+            //}
+            #endregion
         }
 
-        public void Reserveren()
+        public void Reserveren(Item item)
         {
+            Console.WriteLine("Item Gereserveerd");
+            Reservaties.Add(item);                                                                                 //Max 5
 
         }
 

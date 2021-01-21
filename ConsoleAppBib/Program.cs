@@ -34,7 +34,7 @@ namespace ConsoleAppBib
                 ItemId = "2",
                 soortItem = ClassLibrary.Models.SoortItem.DVD,
                 Jaartal = 1995,
-                Uitgeleend = true,
+                Uitgeleend = false,
                 Afgevoerd = false
             };
             Item item003 = new Item()
@@ -44,7 +44,7 @@ namespace ConsoleAppBib
                 ItemId = "3",
                 soortItem = ClassLibrary.Models.SoortItem.Stripverhaal,
                 Jaartal = 1999,
-                Uitgeleend = true,
+                Uitgeleend = false,
                 Afgevoerd = false
             };
             Bezoeker bez001 = new Bezoeker()
@@ -56,7 +56,7 @@ namespace ConsoleAppBib
             {
                 VoorNaam = "Mauro",
                 FamilieNaam = "G",
-                //GeboorteDatum = "18 12 1986"
+                GeboorteDatum = "18 12 1986"
             };
             Medewerker medewerker001 = new Medewerker()
             {
@@ -74,13 +74,32 @@ namespace ConsoleAppBib
 
             //TESTING TEMP CODE
 
-
-
             //TEST METHODS
+
+            Console.WriteLine("Alle Leden:");
+            foreach (var item in CollectieBibliotheek.Leden)
+            {
+                Console.WriteLine(item.VoorNaam);
+                Console.WriteLine(item.FamilieNaam);
+                Console.WriteLine(item.GeboorteDatum);
+                Console.WriteLine();
+            }
+            Console.WriteLine("Alle Items:    ");
+            foreach (var item in CollectieBibliotheek.ItemsInCollectie)
+            {
+                Console.WriteLine(item.Titel);
+                Console.WriteLine(item.RegieAuteurUitvoerder);
+                Console.WriteLine(item.Jaartal);
+                Console.WriteLine(item.Uitgeleend);
+                Console.WriteLine(item.Afgevoerd);
+                Console.WriteLine();
+            }
+
+            //Console.WriteLine(CollectieBibliotheek.Leden);
             //medewerker001.ToonOverzicht();
             //medewerker001.VoegItemToe();
+            //medewerker001.Reservaties.Add(item001);
             //medewerker001.ToonOverzicht();
-
 
             // lid001.RegistreerLid("1812");
             // lid001.ZoekItem();
@@ -88,22 +107,33 @@ namespace ConsoleAppBib
             // bez001.ToonOverzicht();
             //lid001.ShowUitgeleendeItems();
 
-            //test uitlenen en terugbrengen
+            //// test uitlenen en terugbrengen
             //lid001.ToonOverzicht();
             //Console.WriteLine("-------------");
-            //lid001.Uitlenen();
+            //lid001.Uitlenen(item001);
+            //Console.WriteLine("-------------");
+            //lid001.Terugbrengen(item001);
+            //lid001.ToonOverzicht();
+            //Console.WriteLine("-------------");
+
             //Console.WriteLine("---------");
             //lid001.ToonOverzicht();
             //lid001.Terugbrengen();
             //Console.WriteLine("---------");
             //lid001.ToonOverzicht();
 
-
             //medewerker001.PromoveerLidNaarMedeweker();
 
             //medewerker001.GeefOverzichtLeden();
-            medewerker001.VoerItemAf();
-            Console.WriteLine("item afgevoerd");
+            //medewerker001.ToonOverzicht();
+            //Console.WriteLine("***********");
+            //medewerker001.Uitlenen();
+            //medewerker001.ToonOverzicht();
+            //Console.WriteLine("***********");
+            ////medewerker001.VoerItemAf();
+            ////Console.WriteLine("item afgevoerd");
+            //Console.WriteLine(medewerker001.UitleenHistoriek);
+
             #endregion
 
             //Voor Item aan Textfile Afgevoerde items, eerst method  VoerItemAf uitvoeren
