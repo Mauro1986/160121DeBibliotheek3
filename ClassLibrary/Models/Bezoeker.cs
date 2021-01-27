@@ -173,6 +173,5 @@ namespace ClassLibrary.Models
             return base.ToString();
         }
         #endregion
-
     }
 }

@@ -126,7 +126,7 @@ namespace ClassLibrary.Models
 
         public void ShowReservaties()
         {
-            //Console.WriteLine("Deze items zijn momenteel gereserveerd:\n");       //dit is niet juist maar kan me op weg helpen
+            //Console.WriteLine("Deze items zijn momenteel gereserveerd:\n");       
             //foreach (var item in CollectieBibliotheek.ItemsInCollectie)
             //{
             //    if (item.Uitgeleend)

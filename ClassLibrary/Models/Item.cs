@@ -16,7 +16,7 @@ namespace ClassLibrary.Models
 
     public class Item
     {
-        public SoortItem soortItem { get; set; }      //enum
+        public SoortItem soortItem { get; set; }      
 
         public string ItemId { get; set; }
         public string Titel { get; set; }
@@ -24,8 +24,7 @@ namespace ClassLibrary.Models
         public bool Uitgeleend { get; set; }
         public bool Afgevoerd { get; set; }
 
-
-        public string RegieAuteurUitvoerder { get; set; }      //TO DOzou naargelang soort item moeten veranderen
+        public string RegieAuteurUitvoerder { get; set; }      //TO DO  zou naargelang soort item moeten veranderen
 
         //private string soortMaker;                              //Werkt niet
 

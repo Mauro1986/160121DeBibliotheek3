@@ -31,7 +31,6 @@ namespace ClassLibrary.Models
                 VoorNaam = voornaam,
                 GeboorteDatum = GeboorteDatum
             };
-            nieuwemedewerker.GeefOverzichtLeden();
         }
 
         public void VoerItemAf()
@@ -83,7 +82,7 @@ namespace ClassLibrary.Models
             regieauteuruitvoerder = Console.ReadLine();
             Console.WriteLine("Item Id:");
             itemId = Console.ReadLine();
-            Console.WriteLine("Soort Item:lukt nog niet");          //moet enum kunnen ingeven
+            Console.WriteLine("Soort Item: enum lukt nog niet correct");          //moet enum kunnen ingeven
             soortitem = Console.ReadLine(); 
 
 
@@ -94,7 +93,7 @@ namespace ClassLibrary.Models
             Console.WriteLine("Afgevoerd(true/false):");
             afgevoerd = Convert.ToBoolean(Console.ReadLine());
 
-            Item item003 = new Item()    //andere naam                                   
+            Item item007 = new Item()    //nog zorgen voor naamgenerator                                  
             {
                 Titel = titel,
                 RegieAuteurUitvoerder = regieauteuruitvoerder,
@@ -104,8 +103,9 @@ namespace ClassLibrary.Models
                 Uitgeleend = uitgeleend,
                 Afgevoerd = afgevoerd
             };
-            CollectieBibliotheek.ItemsInCollectie.Add(item003);
-        }               //nog zorgen datsoort item toevoegen (enum) 
+            CollectieBibliotheek.ItemsInCollectie.Add(item007);
+            Console.WriteLine("Item toegevoegd waarvoor dank");
+        }               
 
         public void GeefOverzichtLeden()
         {
