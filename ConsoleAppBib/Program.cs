@@ -12,9 +12,8 @@ namespace ConsoleAppBib
     {
         static void Main(string[] args)
         {
-
-            #region INPUT
-
+            #region INPUT                               
+                                                      //Bekijk Solid principe nog is om beter toe te passen (single en factory patrn vooral deze laatste)
             Item item001 = new Item()
             {
                 Titel = "De GVR",
@@ -24,7 +23,7 @@ namespace ConsoleAppBib
                 Jaartal = 2000,
                 Uitgeleend = false,
                 Afgevoerd = false
-            };
+            };            //zulke zaken in class 
             Item item002 = new Item()
             {
                 Titel = "The Last Dance",
@@ -47,7 +46,7 @@ namespace ConsoleAppBib
             };
             Bezoeker bez001 = new Bezoeker()
             {
-                VoorNaam = "Dejeff",
+                VoorNaam = "Jeff",
                 FamilieNaam = "Van Om Den Hoek"
             };
             Lid lid001 = new Lid()
@@ -63,7 +62,7 @@ namespace ConsoleAppBib
                 GeboorteDatum = "10 01 1960"
             };
 
-            CollectieBibliotheek.ItemsInCollectie.Add(item001);
+            CollectieBibliotheek.ItemsInCollectie.Add(item001);     
             CollectieBibliotheek.ItemsInCollectie.Add(item002);
             CollectieBibliotheek.ItemsInCollectie.Add(item003);
             CollectieBibliotheek.Leden.Add(lid001);

@@ -24,6 +24,7 @@ namespace ClassLibrary.Models
             ItemsUitgeleend = new List<Item>();
             UitleenHistoriek = new List<Item>();
             //Reservaties = new List<Item>();
+            //UitleenHistoriek.Count();
         }
         public Lid(string voornaam, string familienaam, string geboortedatum,  List<Item> itemsUitgeleend, List<Item> uitleenhistoriek, List<Item> reservatie) : base(voornaam, familienaam)
         {

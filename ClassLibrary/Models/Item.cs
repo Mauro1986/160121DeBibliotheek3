@@ -14,7 +14,7 @@ namespace ClassLibrary.Models
         CD
     }
 
-    public class Item
+    public class Item //:Icomparable (impl, zie oefeningen)
     {
         public SoortItem soortItem { get; set; }      
 
